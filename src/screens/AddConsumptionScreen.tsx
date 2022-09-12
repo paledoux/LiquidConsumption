@@ -1,13 +1,14 @@
 import React from "react";
 import { View, Text } from "react-native";
+import Box from "../components/Box";
 
 interface AddConsumptionScreenProps {}
 
 const AddConsumptionScreen = ({}: AddConsumptionScreenProps) => {
   return (
-    <View>
+    <Box>
       <Text>Add Consumption screen</Text>
-    </View>
+    </Box>
   );
 };
 

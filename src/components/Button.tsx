@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, Pressable, PressableProps } from "react-native";
+import Box from "./Box";
 
 interface ButtonProps {
   title: string;
@@ -9,9 +10,9 @@ interface ButtonProps {
 const Button = ({ title, onPress }: ButtonProps) => {
   return (
     <Pressable onPress={onPress}>
-      <View style={{ backgroundColor: "red" }}>
+      <Box backgroundColor="background">
         <Text>{title}</Text>
-      </View>
+      </Box>
     </Pressable>
   );
 };
