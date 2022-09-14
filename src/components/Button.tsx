@@ -1,27 +1,26 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { Pressable, PressableProps } from "react-native";
 import Box from "./Box";
-import Text from "./Text";
 
-interface ButtonProps {
-  title: string;
+interface ButtonProps extends PressableProps {
   onPress: PressableProps["onPress"];
+  children: ReactNode;
 }
 
-const Button = ({ title, onPress }: ButtonProps) => {
+const Button = ({ onPress, children, ...props }: ButtonProps) => {
   return (
-    <Pressable onPress={onPress}>
+    <Pressable onPress={onPress} {...props}>
       <Box
-        height={45}
+        min-height={45}
         justifyContent="center"
-        flexDirection="row"
+        flexDirection="column"
         alignItems="center"
         backgroundColor="primary"
         padding="m"
         margin="m"
         borderRadius="s"
       >
-        <Text color="text">{title}</Text>
+        {children}
       </Box>
     </Pressable>
   );

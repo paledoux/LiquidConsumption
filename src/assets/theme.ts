@@ -6,6 +6,7 @@ const palette = {
 export const COLOR = {
   primary: palette.mainBlue,
   text: palette.white,
+  icon: palette.white,
 };
 
 export const SPACING = {
