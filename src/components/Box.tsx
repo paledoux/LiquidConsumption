@@ -1,42 +1,197 @@
-import React, { ReactNode } from "react";
-import { View, ViewProps, ViewStyle, StyleSheet } from "react-native";
+import React from "react";
+import { View, ViewStyle, StyleSheet } from "react-native";
+import { BORDERRADII, COLOR, SPACING } from "../assets/theme";
+import IBox from "../interfaces/IBox";
 
-interface IBox extends ViewProps, ViewStyle {
-  children?: ReactNode;
-  backgroundColor?: keyof typeof COLOR;
-}
-
-const palette = {
-  white: "#fff",
-  lightGray: "#e5e5e5",
-  lightGray2: "#eff0f1",
-  lightGray3: "#C9C9C9",
-  darkBlueBlack: "#1c1c1e",
-  mainBlue: "#004E7D",
-  black: "#000000",
-  lightBlack: "#1E1E1E",
-  lightPink: "#fce5fc",
-  lightPink2: "rgba(252, 229, 252,0.7)",
-  red: "#F32013",
-};
-
-const COLOR = {
-  primary: palette.mainBlue,
-  background: palette.lightGray3,
-  text: palette.darkBlueBlack,
-  accessory: palette.mainBlue,
-  alert: palette.red,
-};
-
-const Box = ({ children, backgroundColor, ...props }: IBox) => {
-  const style = StyleSheet.flatten([
-    {
+const Box = ({
+  children,
+  backfaceVisibility,
+  backgroundColor,
+  borderBottomColor,
+  borderBottomEndRadius,
+  borderBottomLeftRadius,
+  borderBottomRightRadius,
+  borderBottomStartRadius,
+  borderColor,
+  borderEndColor,
+  borderLeftColor,
+  borderRadius,
+  borderRightColor,
+  borderStartColor,
+  borderStyle,
+  borderTopColor,
+  borderTopEndRadius,
+  borderTopLeftRadius,
+  borderTopRightRadius,
+  borderTopStartRadius,
+  opacity,
+  alignContent,
+  alignItems,
+  alignSelf,
+  aspectRatio,
+  borderBottomWidth,
+  borderEndWidth,
+  borderLeftWidth,
+  borderRightWidth,
+  borderStartWidth,
+  borderTopWidth,
+  borderWidth,
+  bottom,
+  display,
+  end,
+  flex,
+  flexBasis,
+  flexDirection,
+  flexGrow,
+  flexShrink,
+  flexWrap,
+  height,
+  justifyContent,
+  left,
+  margin,
+  marginBottom,
+  marginEnd,
+  marginHorizontal,
+  marginLeft,
+  marginRight,
+  marginStart,
+  marginTop,
+  marginVertical,
+  maxHeight,
+  maxWidth,
+  minHeight,
+  minWidth,
+  overflow,
+  padding,
+  paddingBottom,
+  paddingEnd,
+  paddingHorizontal,
+  paddingLeft,
+  paddingRight,
+  paddingStart,
+  paddingTop,
+  paddingVertical,
+  position,
+  right,
+  start,
+  top,
+  width,
+  zIndex,
+  style,
+  ...props
+}: IBox) => {
+  const flattenStyle = StyleSheet.flatten([
+    backfaceVisibility !== undefined && {
+      backfaceVisibility: backfaceVisibility,
+    },
+    backgroundColor !== undefined && {
       backgroundColor: COLOR[backgroundColor],
     },
-  ]);
+    borderBottomColor !== undefined && {
+      borderBottomColor: COLOR[backgroundColor],
+    },
+    borderBottomEndRadius !== undefined && {
+      borderBottomEndRadius: BORDERRADII[borderBottomEndRadius],
+    },
+    borderBottomLeftRadius !== undefined && {
+      borderBottomLeftRadius: BORDERRADII[borderBottomLeftRadius],
+    },
+    borderBottomRightRadius !== undefined && {
+      borderBottomRightRadius: BORDERRADII[borderBottomRightRadius],
+    },
+    borderBottomStartRadius !== undefined && {
+      borderBottomStartRadius: BORDERRADII[borderBottomStartRadius],
+    },
+    borderColor !== undefined && { borderColor: COLOR[backgroundColor] },
+    borderEndColor !== undefined && { borderEndColor: COLOR[backgroundColor] },
+    borderLeftColor !== undefined && {
+      borderLeftColor: COLOR[backgroundColor],
+    },
+    borderRadius !== undefined && { borderRadius: BORDERRADII[borderRadius] },
+    borderRightColor !== undefined && {
+      borderRightColor: COLOR[backgroundColor],
+    },
+    borderStartColor !== undefined && {
+      borderStartColor: COLOR[backgroundColor],
+    },
+    borderStyle !== undefined && { borderStyle: borderStyle },
+    borderTopColor !== undefined && { borderTopColor: COLOR[backgroundColor] },
+    borderTopEndRadius !== undefined && {
+      borderTopEndRadius: BORDERRADII[borderTopEndRadius],
+    },
+    borderTopLeftRadius !== undefined && {
+      borderTopLeftRadius: BORDERRADII[borderTopLeftRadius],
+    },
+    borderTopRightRadius !== undefined && {
+      borderTopRightRadius: BORDERRADII[borderTopRightRadius],
+    },
+    borderTopStartRadius !== undefined && {
+      borderTopStartRadius: BORDERRADII[borderTopStartRadius],
+    },
+    opacity !== undefined && { opacity: opacity },
+    alignContent !== undefined && { alignContent: alignContent },
+    alignItems !== undefined && { alignItems: alignItems },
+    alignSelf !== undefined && { alignSelf: alignSelf },
+    aspectRatio !== undefined && { aspectRatio: aspectRatio },
+    borderBottomWidth !== undefined && { borderBottomWidth: borderBottomWidth },
+    borderEndWidth !== undefined && { borderEndWidth: borderEndWidth },
+    borderLeftWidth !== undefined && { borderLeftWidth: borderLeftWidth },
+    borderRightWidth !== undefined && { borderRightWidth: borderRightWidth },
+    borderStartWidth !== undefined && { borderStartWidth: borderStartWidth },
+    borderTopWidth !== undefined && { borderTopWidth: borderTopWidth },
+    borderWidth !== undefined && { borderWidth: borderWidth },
+    bottom !== undefined && { bottom: bottom },
+    display !== undefined && { display: display },
+    end !== undefined && { end: end },
+    flex !== undefined && { flex: flex },
+    flexBasis !== undefined && { flexBasis: flexBasis },
+    flexDirection !== undefined && { flexDirection: flexDirection },
+    flexGrow !== undefined && { flexGrow: flexGrow },
+    flexShrink !== undefined && { flexShrink: flexShrink },
+    flexWrap !== undefined && { flexWrap: flexWrap },
+    height !== undefined && { height: height },
+    justifyContent !== undefined && { justifyContent: justifyContent },
+    left !== undefined && { left: left },
+    margin !== undefined && { margin: SPACING[margin] },
+    marginBottom !== undefined && { marginBottom: SPACING[marginBottom] },
+    marginEnd !== undefined && { marginEnd: SPACING[marginEnd] },
+    marginHorizontal !== undefined && {
+      marginHorizontal: SPACING[marginHorizontal],
+    },
+    marginLeft !== undefined && { marginLeft: SPACING[marginLeft] },
+    marginRight !== undefined && { marginRight: SPACING[marginRight] },
+    marginStart !== undefined && { marginStart: SPACING[marginStart] },
+    marginTop !== undefined && { marginTop: SPACING[marginTop] },
+    marginVertical !== undefined && { marginVertical: SPACING[marginVertical] },
+    maxHeight !== undefined && { maxHeight: maxHeight },
+    maxWidth !== undefined && { maxWidth: maxWidth },
+    minHeight !== undefined && { minHeight: minHeight },
+    minWidth !== undefined && { minWidth: minWidth },
+    overflow !== undefined && { overflow: overflow },
+    padding !== undefined && { padding: SPACING[padding] },
+    paddingBottom !== undefined && { paddingBottom: SPACING[paddingBottom] },
+    paddingEnd !== undefined && { paddingEnd: paddingEnd },
+    paddingHorizontal !== undefined && {
+      paddingHorizontal: SPACING[paddingHorizontal],
+    },
+    paddingLeft !== undefined && { paddingLeft: SPACING[paddingLeft] },
+    paddingRight !== undefined && { paddingRight: SPACING[paddingRight] },
+    paddingStart !== undefined && { paddingStart: SPACING[paddingStart] },
+    paddingTop !== undefined && { paddingTop: SPACING[paddingTop] },
+    paddingVertical !== undefined && {
+      paddingVertical: SPACING[paddingVertical],
+    },
+    position !== undefined && { position: position },
+    right !== undefined && { right: right },
+    start !== undefined && { start: start },
+    top !== undefined && { top: top },
+    width !== undefined && { width: width },
+    zIndex !== undefined && { zIndex: zIndex },
+    style,
+  ]) as ViewStyle;
 
   return (
-    <View style={style} {...props}>
+    <View style={flattenStyle} {...props}>
       {children}
     </View>
   );

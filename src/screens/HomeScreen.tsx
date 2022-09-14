@@ -1,21 +1,25 @@
 import { NavigationProp, useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, Text, Pressable } from "react-native";
+
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../App";
 import Button from "../components/Button";
+import Box from "../components/Box";
 
 const HomeScreen = ({
   navigation,
 }: NativeStackScreenProps<RootStackParamList, "Home">) => {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home Screen</Text>
+    <Box flex={1} justifyContent="center" alignItems="center">
       <Button
         title="Ajouter une consomation"
         onPress={() => navigation.navigate("AddConsumption")}
       />
-    </View>
+      <Button
+        title="Ajouter une consomation"
+        onPress={() => navigation.navigate("AddConsumption")}
+      />
+    </Box>
   );
 };
 
