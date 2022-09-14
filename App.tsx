@@ -3,11 +3,13 @@ import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./src/screens/HomeScreen";
-import AddConsumption from "./src/screens/AddConsumptionScreen";
+import AddConsumptionScreen from "./src/screens/AddConsumptionScreen";
+import AddRecipientScreen from "./src/screens/AddRecipientScreen";
 
 export type RootStackParamList = {
   Home: undefined;
   AddConsumption: Consumption;
+  AddRecipient: undefined;
 };
 
 export type Consumption = {
@@ -29,7 +31,12 @@ export default function App() {
         <Stack.Screen
           name="AddConsumption"
           options={{ headerShown: false }}
-          component={AddConsumption}
+          component={AddConsumptionScreen}
+        />
+        <Stack.Screen
+          name="AddRecipient"
+          options={{ headerShown: false }}
+          component={AddRecipientScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

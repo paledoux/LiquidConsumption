@@ -5,24 +5,58 @@ import {
   Text as RNText,
   TextProps,
   TextStyle,
-  ViewStyle,
 } from "react-native";
-import { idText } from "typescript";
-import { COLOR } from "../assets/theme";
+import { COLOR, TEXT_VARIANTS } from "../assets/theme";
+import IText from "../interfaces/IText";
 
-interface IText extends TextProps {
-  children?: ReactNode;
-  color?: keyof typeof COLOR;
-  style?: StyleProp<TextStyle>;
-}
-
-const Text = ({ children, color = "text", style, ...props }: IText) => {
+const Text = ({
+  children,
+  color = "text",
+  fontFamily,
+  fontSize,
+  fontStyle,
+  fontWeight,
+  letterSpacing,
+  lineHeight,
+  textAlign,
+  textDecorationLine,
+  textDecorationStyle,
+  textDecorationColor,
+  textShadowColor,
+  textShadowOffset,
+  textShadowRadius,
+  textTransform,
+  variant,
+  style,
+  ...props
+}: IText) => {
   const flattenStyle = StyleSheet.flatten([
-    {
-      color: COLOR[color],
+    color !== undefined && { color: COLOR[color] },
+    fontFamily !== undefined && { fontFamily: fontFamily },
+    fontSize !== undefined && { fontSize: fontSize },
+    fontStyle !== undefined && { fontStyle: fontStyle },
+    fontWeight !== undefined && { fontWeight: fontWeight },
+    letterSpacing !== undefined && { letterSpacing: letterSpacing },
+    lineHeight !== undefined && { lineHeight: lineHeight },
+    textAlign !== undefined && { textAlign: textAlign },
+    textDecorationLine !== undefined && {
+      textDecorationLine: textDecorationLine,
     },
+    textDecorationStyle !== undefined && {
+      textDecorationStyle: textDecorationStyle,
+    },
+    textDecorationColor !== undefined && {
+      textDecorationColor: COLOR[textDecorationColor],
+    },
+    textShadowColor !== undefined && {
+      textShadowColor: COLOR[textShadowColor],
+    },
+    textShadowOffset !== undefined && { textShadowOffset: textShadowOffset },
+    textShadowRadius !== undefined && { textShadowRadius: textShadowRadius },
+    textTransform !== undefined && { textTransform: textTransform },
+    TEXT_VARIANTS[variant],
     style,
-  ]);
+  ]) as TextStyle;
 
   return (
     <RNText style={flattenStyle} {...props}>

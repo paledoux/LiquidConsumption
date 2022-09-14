@@ -13,9 +13,14 @@ const HomeScreen = ({
 }: NativeStackScreenProps<RootStackParamList, "Home">) => {
   return (
     <Box flex={1} justifyContent="center" alignItems="center">
+      <Text variant="welcomeText">Bienvenue !</Text>
       <Button onPress={() => navigation.navigate("AddConsumption")}>
-        <Text style={{ fontWeight: "bold" }}>Ajouter une consomation</Text>
+        <Text fontWeight="bold">Ajouter une consomation</Text>
         <Icon name="plus" size={64} />
+      </Button>
+
+      <Button onPress={() => navigation.navigate("AddRecipient")}>
+        <Text fontWeight="bold">Ajouter un verre</Text>
       </Button>
     </Box>
   );

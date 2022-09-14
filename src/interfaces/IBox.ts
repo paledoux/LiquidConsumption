@@ -3,7 +3,7 @@ import { StyleProp, ViewProps, ViewStyle } from "react-native";
 import { BORDERRADII, COLOR, SPACING } from "../assets/theme";
 
 export default interface IBox extends ViewProps {
-  children?: ReactNode;
+  children?: ReactNode | ReactNode[];
   backfaceVisibility?: ViewStyle["backfaceVisibility"];
   backgroundColor?: keyof typeof COLOR;
   borderBottomColor?: keyof typeof COLOR;
